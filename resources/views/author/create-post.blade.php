@@ -19,7 +19,7 @@
                        name="title" 
                        id="title"
                        value="{{ old('title') }}"
-                       class="w-full rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('title') border-red-500 @enderror" 
+                       class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('title') border-red-500 @enderror" 
                        placeholder="Enter your post title">
                 @error('title')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -31,7 +31,7 @@
                 <label for="category_id" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
                 <select name="category_id" 
                         id="category_id"
-                        class="w-full rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('category_id') border-red-500 @enderror">
+                        class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('category_id') border-red-500 @enderror">
                     <option value="">Select a category</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
@@ -84,7 +84,7 @@
                 <textarea name="content" 
                           id="content" 
                           rows="12" 
-                          class="w-full rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('content') border-red-500 @enderror" 
+                          class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('content') border-red-500 @enderror" 
                           placeholder="Write your post content here...">{{ old('content') }}</textarea>
                 @error('content')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -97,7 +97,7 @@
                 <textarea name="excerpt" 
                           id="excerpt" 
                           rows="3" 
-                          class="w-full rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('excerpt') border-red-500 @enderror" 
+                          class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 @error('excerpt') border-red-500 @enderror" 
                           placeholder="Brief description of your post">{{ old('excerpt') }}</textarea>
                 @error('excerpt')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -106,10 +106,7 @@
 
             <!-- Actions -->
             <div class="flex items-center justify-end space-x-4">
-                <button type="submit" name="status" value="draft" 
-                        class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">
-                    Save as Draft
-                </button>
+                
                 <button type="submit" name="status" value="pending" 
                         class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
                     Publish Post

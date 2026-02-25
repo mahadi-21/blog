@@ -21,7 +21,10 @@ Route::middleware(['auth','verified','role:admin'])->prefix('admin')->name('admi
     
 
     Route::get('/articles/approve', [ArticleController::class,'index'])->name('articles.approve');
-
+    Route::post('/article/aprrove',[ArticleController::class,'approve'])->name('article.aprrove');
+    Route::post('/article/delete',[ArticleController::class,'destroy'])->name('article.delete');
+    Route::post('/article/view',[ArticleController::class,'show'])->name('article.view');
+    
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories'); 
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
@@ -30,9 +33,7 @@ Route::middleware(['auth','verified','role:admin'])->prefix('admin')->name('admi
     Route::post('/categories/update', [CategoryController::class, 'update'])->name('categories.update');
     Route::post('/categories/delete', [CategoryController::class, 'destroy'])->name('categories.delete');
 
-    Route::get('/users/messages', function () {
-        return view('admin.messages');
-    })->name('messages');
+    Route::get('/users/messages', [AdminController::class,'message'])->name('messages');
 
     
 

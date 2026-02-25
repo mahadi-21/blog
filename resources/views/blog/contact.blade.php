@@ -19,8 +19,8 @@
                 <i class="fa-solid fa-envelope text-xl text-indigo-600"></i>
             </div>
             <h3 class="font-semibold text-gray-900">Email Us</h3>
-            <p class="text-gray-600 mt-2">support@blogspace.com</p>
-            <p class="text-gray-600">info@blogspace.com</p>
+            <p class="text-gray-600 mt-2">mahadi.cse.21@gmail.com</p>
+            <p class="text-gray-600">mahadi.cse.22@gmail.com</p>
         </div>
         
         <div class="bg-white rounded-lg shadow-lg p-6 text-center">
@@ -28,24 +28,17 @@
                 <i class="fa-solid fa-phone text-xl text-purple-600"></i>
             </div>
             <h3 class="font-semibold text-gray-900">Call Us</h3>
-            <p class="text-gray-600 mt-2">+880123456789</p>
-            <p class="text-gray-600">Mon-Fri, 9am-6pm EST</p>
+            <p class="text-gray-600 mt-2">+8801780689788</p>
+            
         </div>
         
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-            <div class="bg-pink-100 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <i class="fa-solid fa-location-dot text-xl text-pink-600"></i>
-            </div>
-            <h3 class="font-semibold text-gray-900">Visit Us</h3>
-            <p class="text-gray-600 mt-2">123 Blog Street</p>
-            <p class="text-gray-600">Dhaka, Bangladesh 1205</p>
-        </div>
+        
     </div>
 </div>
 
 <!-- Contact Form & Map -->
 <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div class="grid grid-cols-1  gap-12">
         <!-- Contact Form -->
         <div>
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>

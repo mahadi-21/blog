@@ -67,15 +67,28 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2">
-                                        <button class="text-green-600 hover:text-green-800">
-                                            <i class="fa-solid fa-check"></i>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-800">
-                                            <i class="fa-solid fa-times"></i>
-                                        </button>
-                                        <a href="#" class="text-blue-600 hover:text-blue-800">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </a>
+                                       <form action="{{ route('admin.article.aprrove') }}" method="post">
+                                                @csrf
+                                                <input type="text" hidden name="id" value="{{ $article->id }}">
+                                                <button class="text-green-600 hover:text-green-800">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('admin.article.delete') }}" method="post">
+                                                @csrf
+                                                <input type="text" hidden name="id" value="{{ $article->id }}">
+                                                <button class="text-red-600 hover:text-red-800">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('admin.article.view') }}" method="post">
+                                                @csrf
+                                                <input type="text" hidden name="id" value="{{ $article->id }}">
+                                                <button class="text-blue-600 hover:text-blue-800">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                                
+                                            </form>
                                     </div>
                                 </td>
                             </tr>

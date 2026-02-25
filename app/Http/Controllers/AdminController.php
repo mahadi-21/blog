@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -77,6 +78,12 @@ class AdminController extends Controller
     {
         $users = User::where('role','author')->latest()->paginate(10);
         return view('admin.users',compact('users'));
+    }
+
+    public function message()
+    {
+        $contacts = Contact::all();
+        return view('admin.messages',compact('contacts'));
     }
     
 }

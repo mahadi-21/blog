@@ -64,11 +64,11 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            @foreach(['Technology', 'Lifestyle', 'Travel', 'Food', 'Health', 'Business', 'Sports', 'Entertainment'] as $category)
+            @foreach($categories as $category)
             <a href="#" class="bg-white rounded-lg p-6 text-center hover:shadow-md transition group">
                 <i class="fa-solid fa-{{ $category === 'Technology' ? 'laptop-code' : 'tag' }} text-3xl text-indigo-600 mb-3"></i>
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-indigo-600">{{ $category }}</h3>
-                <p class="text-sm text-gray-500 mt-1">{{ rand(10, 50) }} articles</p>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-indigo-600">{{ $category->name }}</h3>
+                <p class="text-sm text-gray-500 mt-1">{{ $category->posts_count }} articles</p>
             </a>
             @endforeach
         </div>
@@ -81,8 +81,9 @@
         <div class="px-6 py-12 sm:px-12 lg:py-16 lg:px-16 text-center">
             <h2 class="text-3xl font-bold text-white">Subscribe to Our Newsletter</h2>
             <p class="mt-4 text-indigo-100 text-lg">Get the latest posts delivered right to your inbox.</p>
-            <form class="mt-8 sm:flex justify-center">
-                <input type="email" placeholder="Enter your email" class="w-full sm:w-96 px-5 py-3 border border-transparent rounded-md text-base focus:outline-none focus:ring-2 focus:ring-white">
+            <form class="mt-8 sm:flex justify-center" action="{{ route('subscribe') }}" method="POST">
+                @csrf
+                <input type="email" name="email" placeholder="Enter your email" class="w-full sm:w-96 px-5 py-3 border border-transparent rounded-md text-base focus:outline-none focus:ring-2 focus:ring-white">
                 <button type="submit" class="mt-3 sm:mt-0 sm:ml-3 w-full sm:w-auto px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white">
                     Subscribe
                 </button>

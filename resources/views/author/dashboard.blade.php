@@ -33,45 +33,19 @@
             </div>
            
         </div>
-
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm text-gray-600">Total Views</p>
-                    <p class="text-2xl font-bold text-gray-900">12.5K</p>
+                    <p class="text-sm text-gray-600">Total Posts</p>
+                    <p class="text-2xl font-bold text-gray-900">{{$rejected_posts}}</p>
                 </div>
-                <div class="bg-green-100 rounded-full p-3">
-                    <i class="fa-solid fa-eye text-green-600"></i>
+                <div class="bg-indigo-100 rounded-full p-3">
+                    <i class="fa-solid fa-pen text-indigo-600"></i>
                 </div>
             </div>
-            <p class="text-sm text-green-600 mt-2">↑ 8% from last month</p>
+           
         </div>
 
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-sm text-gray-600">Comments</p>
-                    <p class="text-2xl font-bold text-gray-900">156</p>
-                </div>
-                <div class="bg-yellow-100 rounded-full p-3">
-                    <i class="fa-solid fa-comment text-yellow-600"></i>
-                </div>
-            </div>
-            <p class="text-sm text-green-600 mt-2">↑ 23% from last month</p>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-sm text-gray-600">Likes</p>
-                    <p class="text-2xl font-bold text-gray-900">892</p>
-                </div>
-                <div class="bg-red-100 rounded-full p-3">
-                    <i class="fa-solid fa-heart text-red-600"></i>
-                </div>
-            </div>
-            <p class="text-sm text-green-600 mt-2">↑ 15% from last month</p>
-        </div>
     </div>
 </div>
 
@@ -89,15 +63,20 @@
                     <img src="{{ asset($post->featured_image) }}" alt="Post thumbnail" class="h-12 w-12 rounded object-cover">
                     <div>
                         <h3 class="text-sm font-medium text-gray-900">{{ $post->title }}</h3>
-                        <p class="text-xs text-gray-500">Published on {{ $post->created_at->format('M d, Y') }} • 2.5K views</p>
+
+                        @if ($post->status=='published')
+                         <p class="text-xs text-gray-500">Published on {{ $post->created_at->format('M d, Y') }} </p>
+                        @else
+                        <p class="text-xs text-gray-500">Created on {{ $post->created_at->format('M d, Y') }} </p>
+                        @endif
                     </div>
                 </div>
                 <div class="flex items-center space-x-2">
                     <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">{{ $post->status }}</span>
                     {{-- <a href="#" class="text-gray-400 hover:text-indigo-600"><i class="fa-solid fa-pen"></i></a> --}}
-                    <form action="{{ route('author.post.delete') }}" method="POST">
+                    <form action="{{ route('author.article.delete') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <input type="text" name="id" value="{{ $post->id }}" hidden>
                         <button type="submit" class="text-gray-400 hover:text-red-600">
                             <i class="fa-solid fa-trash"></i>
                         </button>

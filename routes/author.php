@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -12,5 +13,9 @@ Route::middleware(['auth','verified','role:author'])->prefix('author')->name('au
     Route::post('/post/store', [AuthorController::class,'store'])->name('post.store');
     Route::post('/post/show', [AuthorController::class,'show'])->name('post.show');
     Route::post('/post/delete', [AuthorController::class,'delete'])->name('post.delete');
+
+    Route::post('/article/delete',[ArticleController::class,'destroy'])->name('article.delete');
+
+
     Route::post('/post/update', [AuthorController::class,'update'])->name('post.update');
 });

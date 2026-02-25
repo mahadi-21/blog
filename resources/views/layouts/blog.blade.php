@@ -53,7 +53,7 @@
 
                     <a href="{{ route('blog.home') }}"
                     
-                        hidden
+                        
                         
                         class="px-3 py-2 text-sm font-medium transition hover:text-indigo-600
                        
@@ -91,12 +91,7 @@
                 <!-- User Menu -->
                 <div class="flex items-center space-x-4">
                     @auth
-                        <!-- Notifications -->
-                        <button class="text-gray-600 hover:text-indigo-600 relative">
-                            <i class="fa-regular fa-bell text-xl"></i>
-                            <span
-                                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
-                        </button>
+                    
 
                         <!-- User Dropdown -->
                         <div class="relative" x-data="{ open: false }">
@@ -138,7 +133,7 @@
         </div>
     </nav>
     @if (session('success'))
-        <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto mt-6 mb-6 px-4 sm:px-6 lg:px-8">
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                 <strong class="font-bold">Success!</strong>
                 <span class="block sm:inline">{{ session('success') }}</span>
@@ -163,7 +158,7 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-gray-200 mt-12">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- About -->
                 <div>
                     <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">About</h3>
@@ -184,16 +179,7 @@
                     </ul>
                 </div>
 
-                <!-- Categories -->
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Categories</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="#" class="text-gray-500 hover:text-indigo-600 text-sm">Technology</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-indigo-600 text-sm">Lifestyle</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-indigo-600 text-sm">Travel</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-indigo-600 text-sm">Food</a></li>
-                    </ul>
-                </div>
+                
 
                 <!-- Follow Us -->
                 <div>

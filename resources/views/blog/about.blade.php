@@ -13,7 +13,7 @@
 
 <!-- Our Story -->
 <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="grid grid-cols-1  gap-12 items-center">
         <div>
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
             <p class="text-gray-600 mb-4">Founded in 2020, BlogSpace started as a small platform for writers to share their passion. Today, we've grown into a vibrant community of over 10,000 writers and millions of readers worldwide.</p>
@@ -24,7 +24,7 @@
                     <img src="https://ui-avatars.com/api/?name=Jane+Smith" class="w-10 h-10 rounded-full border-2 border-white">
                     <img src="https://ui-avatars.com/api/?name=Bob+Wilson" class="w-10 h-10 rounded-full border-2 border-white">
                 </div>
-                <span class="text-gray-600">Join 10k+ writers</span>
+                <span class="text-gray-600">Join {{$active_authors/1000}}k+ writers</span>
             </div>
         </div>
        
@@ -86,19 +86,14 @@
             <p class="text-gray-600 mt-2">Passionate people making BlogSpace awesome</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach([
-                ['name' => 'Sarah Johnson', 'role' => 'Founder & CEO', 'color' => 'indigo'],
-                ['name' => 'Mike Chen', 'role' => 'Editor-in-Chief', 'color' => 'purple'],
-                ['name' => 'Emily Davis', 'role' => 'Content Lead', 'color' => 'pink'],
-                ['name' => 'Alex Rodriguez', 'role' => 'Community Manager', 'color' => 'blue']
-            ] as $member)
+            @foreach($teams as $member)
             <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                <img src="https://ui-avatars.com/api/?name={{ urlencode($member['name']) }}&size=128" class="w-24 h-24 rounded-full mx-auto mb-4">
-                <h3 class="text-lg font-bold">{{ $member['name'] }}</h3>
-                <p class="text-{{ $member['color'] }}-600 text-sm">{{ $member['role'] }}</p>
+                <img src="https://ui-avatars.com/api/?name={{ urlencode($member->name) }}&size=128" class="w-24 h-24 rounded-full mx-auto mb-4">
+                <h3 class="text-lg font-bold">{{ $member->name }}</h3>
+                <p class="text-blue-600 text-sm">{{ $member->position }}</p>
                 <div class="flex justify-center space-x-3 mt-4">
-                    <a href="#" class="text-gray-400 hover:text-{{ $member['color'] }}-600"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-{{ $member['color'] }}-600"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white-600"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white-600"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
             @endforeach
