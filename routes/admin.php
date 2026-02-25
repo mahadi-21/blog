@@ -35,6 +35,8 @@ Route::middleware(['auth','verified','role:admin'])->prefix('admin')->name('admi
 
     Route::get('/users/messages', [AdminController::class,'message'])->name('messages');
 
+    Route::post('/settings/test-email', [SettingsController::class, 'testEmail'])->name('settings.test-email');
+
     
 
 
